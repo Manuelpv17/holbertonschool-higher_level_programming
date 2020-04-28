@@ -9,4 +9,8 @@ elif aux == 0:
 else:
     str = "and is less than 6 and not 0"
 
-print("Last digit of {:d} is {:d} {}".format(number, aux, str))
+if (number < 0):
+    print("Last digit of {:d} is {} {}".format(
+        number, -aux, str))
+else:
+    print("Last digit of {:d} is {} {}".format(number, aux, str))
