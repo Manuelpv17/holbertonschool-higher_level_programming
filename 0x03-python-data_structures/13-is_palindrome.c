@@ -9,9 +9,13 @@ int aux_func(listint_t **, listint_t *);
  */
 int is_palindrome(listint_t **head)
 {
+	listint_t *aux_head = NULL;
+
 	if (head == NULL || *head == NULL)
 		return (1);
-	return (aux_func(head, *head));
+
+	aux_head = *head;
+	return (aux_func(&aux_head, *head));
 }
 int aux_func(listint_t **head, listint_t *b_head)
 {
