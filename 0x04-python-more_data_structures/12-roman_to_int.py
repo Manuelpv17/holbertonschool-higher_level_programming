@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     number = 0
+    aux_num = 0
     roman = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
     if roman_string:
-        for letter in roman_string:
+        for i, letter in enumerate(roman_string):
             if letter in roman:
-                if number > 0 and roman[letter] > number:
-                    number = roman[letter] - number
-                else:
-                    number += roman[letter]
+                number += roman[letter]
+                if i > 0 and letter != roman_string[i - 1]:
+                    if roman[letter] > aux_num:
+                        number -= aux_num * 2
+                    aux_num = 0
+                aux_num += roman[letter]
             else:
                 return(0)
     return(number)
