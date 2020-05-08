@@ -2,8 +2,8 @@
 def roman_to_int(roman_string):
     number = 0
     aux_num = 0
-    roman = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
-    if roman_string:
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    if roman_string and type(roman_string) == str:
         for i, letter in enumerate(roman_string):
             if letter in roman:
                 number += roman[letter]
