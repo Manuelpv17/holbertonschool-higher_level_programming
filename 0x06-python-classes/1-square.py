@@ -10,4 +10,4 @@ class Square:
                 Arguments:
                         size {[int]} -- [size of Square]
                 """
-        Square.__size = size
+        self.__size = size
