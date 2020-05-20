@@ -3,7 +3,7 @@
 import math
 
 
-class _MagicClass__radius:
+class MagicClass:
 	"""Magic Radius class. Made from ByteCode
 	"""
     def __init__(self, radius=0):
