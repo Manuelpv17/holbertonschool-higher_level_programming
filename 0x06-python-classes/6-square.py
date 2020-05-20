@@ -36,6 +36,9 @@ class Square:
         self.__size = value
 
     def my_print(self):
+        if self.__size == 0:
+            print()
+            return
         for j in range(self.__size + self.position[1]):
             if j < self.position[1]:
                 print()
@@ -46,8 +49,6 @@ class Square:
                     else:
                         print("#", end="")
                 print()
-        if self.__size == 0:
-            print()
 
     @property
     def position(self):
