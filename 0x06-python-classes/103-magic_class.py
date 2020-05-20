@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import math
 "Task 10 ByteCode #5"
+import math
 
 
 class _MagicClass__radius:
