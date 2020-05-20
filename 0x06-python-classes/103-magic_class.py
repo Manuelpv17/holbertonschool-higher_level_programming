@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 import math
+"Task 10 ByteCode #5"
 
 
 class _MagicClass__radius:
+	"""Magic Radius class. Made from ByteCode
+	"""
     def __init__(self, radius=0):
         if type(radius) is not int or type(radius) is not float:
             raise TypeError('radius must be a number')
