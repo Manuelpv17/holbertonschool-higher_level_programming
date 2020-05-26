@@ -7,6 +7,8 @@ from sys import argv
 
 
 class chezz_table:
+    """N queens
+        """
 
     def __init__(self, N):
         chezz_tab = []
