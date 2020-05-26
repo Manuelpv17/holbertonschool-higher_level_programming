@@ -71,11 +71,26 @@ for x in range(N):
         # print(solutions[cont].table)
         cont += 1
 
+for i, item in enumerate(solutions):
+    for j, others in enumerate(solutions):
+        if j != i and item.table == others.table:
+            solutions.remove(item)
+            break
+
 max = 0
-for i in range(cont):
+for i in range(len(solutions)):
     if solutions[i].num_queens > max:
         max = solutions[i].num_queens
-print(max)
-for i in range(cont):
+
+
+for i in range(len(solutions)):
     if solutions[i].num_queens == max:
-        print(solutions[i].table)
+        list_print = []
+        for j in range(N):
+            row = []
+            for k in range(N):
+                if solutions[i].table[j][k] == 1:
+                    row.append(j)
+                    row.append(k)
+            list_print.append(row)
+        print(list_print)
