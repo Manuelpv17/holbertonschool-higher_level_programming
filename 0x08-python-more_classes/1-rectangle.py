@@ -8,8 +8,6 @@ class Rectangle:
         """
 
     def __init__(self, width=0, height=0):
-        self.check_width(width)
-        self.check_height(height)
         self.height = height
         self.width = width
 
