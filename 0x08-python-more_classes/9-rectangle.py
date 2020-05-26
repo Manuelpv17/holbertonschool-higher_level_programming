@@ -49,22 +49,22 @@ class Rectangle:
         return self.__height * self.__width
 
     def perimeter(self):
-        if self.__height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return 0
-        return 2 * self.__height + 2 * self.width
+        return 2 * self.__height + 2 * self.__width
 
     def __str__(self):
         r = ""
-        if self.__height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return r
-        for h in range(self.height):
-            for w in range(self.width):
+        for h in range(self.__height):
+            for w in range(self.__width):
                 r += str(self.print_symbol)
             r += "\n"
         return r[:-1]
 
     def __repr__(self):
-        return "Rectangle({}, {})".format(self.width, self.height)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         print("Bye rectangle...")
@@ -82,4 +82,4 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return Rectangle(size, size)
+        return cls(size, size)
