@@ -10,8 +10,8 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.check_width(width)
         self.check_height(height)
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     @property
     def height(self):
@@ -19,6 +19,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
+        self.check_height(value)
         self.__height = value
 
     @property
@@ -27,6 +28,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
+        self.check_width(value)
         self.__width = value
 
     def check_width(self, width):
