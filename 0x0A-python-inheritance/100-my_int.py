@@ -4,6 +4,11 @@
 
 
 class MyInt(int):
+    """class MyInt that inherits from int
+
+        Arguments:
+                int {int} -- Number
+        """
 
     def __init__(self, num):
         self.num = num
