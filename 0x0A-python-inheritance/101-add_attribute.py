@@ -5,6 +5,8 @@ object if it’s possible
 
 
 def add_attribute(obj, att, value):
+    """adds a new attribute
+    """
     if "__dict__" not in dir(obj):
         raise TypeError("can't add new attribute")
     else:
