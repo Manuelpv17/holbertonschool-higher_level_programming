@@ -9,6 +9,7 @@ Using ``BaseGeometry``
 Now use it:
 
 >>> bg = BaseGeometry()
+
 >>> bg.integer_validator("my_int", 12)
 
 >>> bg.integer_validator("width", 89)
@@ -90,7 +91,7 @@ Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-bg.integer_validator("name", (3, 5), 5)
+>>> bg.integer_validator("name", (3, 5), 5)
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
