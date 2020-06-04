@@ -55,4 +55,4 @@ try:
             if cont_500 > 0:
                 print("500: {}".format(cont_500))
 except KeyboardInterrupt:
-    print("hi")
+    sys.exit()
