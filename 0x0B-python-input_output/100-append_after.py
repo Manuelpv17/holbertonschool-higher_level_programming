@@ -4,6 +4,13 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """ inserts a line of text to a file, after each line containing a specific string
+
+        Keyword Arguments:
+                filename {str} -- file (default: {""})
+                search_string {str} -- text to search (default: {""})
+                new_string {str} -- text to insert (default: {""})
+        """
     with open(filename, mode="r+", encoding="utf-8") as m:
         new = ""
         cont = 0
