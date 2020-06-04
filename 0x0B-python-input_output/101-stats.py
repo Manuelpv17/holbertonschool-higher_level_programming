@@ -11,7 +11,9 @@ cont_404 = 0
 cont_405 = 0
 cont_500 = 0
 total_size = 0
+cont = 0
 for line in fileinput.input():
+    cont += 1
     w = line.split()
     if w[-2] == "200":
         cont_200 += 1
@@ -31,7 +33,7 @@ for line in fileinput.input():
         cont_500 += 1
 
     total_size += int(w[-1])
-    if len(line) % 10 == 0:
+    if cont % 10 == 0:
         print("File size: {}".format(total_size))
         if cont_200 > 0:
             print("200: {}".format(cont_200))
