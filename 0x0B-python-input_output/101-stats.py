@@ -21,10 +21,11 @@ try:
             for stat_key, stat_value in status.items():
                 if stat_value > 0:
                     print("{}: {}".format(stat_key, stat_value))
-    print("File size: {}".format(total_size))
-    for stat_key, stat_value in status.items():
-        if stat_value > 0:
-            print("{}: {}".format(stat_key, stat_value))
+    if cont % 10 != 0:
+        print("File size: {}".format(total_size))
+        for stat_key, stat_value in status.items():
+            if stat_value > 0:
+                print("{}: {}".format(stat_key, stat_value))
 except Exception:
     print("File size: {}".format(total_size))
     for stat_key, stat_value in status.items():
