@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Load, add, save 
+"""Load, add, save
     """
 from sys import argv
 import json
