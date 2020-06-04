@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Log parsing
+    """
 import fileinput
 cont_200 = 0
 cont_301 = 0
