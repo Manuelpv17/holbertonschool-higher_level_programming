@@ -1,5 +1,17 @@
 #!/usr/bin/python3
+"""Pascal's Triangle
+    """
+
+
 def pascal_triangle(n):
+    """Pascal's Triangle
+
+        Arguments:
+                n {int} -- number of iterations
+
+        Returns:
+                list -- list of list with pascal triangle
+        """
     pascal = []
     if n <= 0:
         return pascal
