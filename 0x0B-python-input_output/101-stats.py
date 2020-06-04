@@ -32,6 +32,7 @@ for line in fileinput.input():
 
     total_size += int(w[-1])
     if len(line) % 10 == 0:
+        print("File size: {}".format(total_size))
         if cont_200 > 0:
             print("200: {}".format(cont_200))
         if cont_301 > 0:
@@ -48,4 +49,3 @@ for line in fileinput.input():
             print("405: {}".format(cont_405))
         if cont_500 > 0:
             print("500: {}".format(cont_500))
-        print("File size: {}".format(total_size))
