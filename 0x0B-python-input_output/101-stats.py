@@ -23,7 +23,7 @@ try:
         w = line.split()
 
         for i, elem in enumerate(status):
-            if w[-2] == elem:
+            if len(w) > 1 and w[-2] == elem:
                 values[i] += 1
                 total_size += int(w[-1])
                 cont += 1
