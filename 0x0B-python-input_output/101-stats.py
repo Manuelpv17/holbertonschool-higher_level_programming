@@ -15,7 +15,6 @@ status = {'200': 0, '301': 0, '400': 0, '401': 0,
           '403': 0, '404': 0, '405': 0, '500': 0}
 
 cont = 0
-size = 0
 total_size = 0
 
 try:
@@ -32,11 +31,10 @@ try:
         except:
             pass
 
-        if cont % 10 == 0:
+        if cont % 10 == 0 and cont != 0:
             print_format()
 
-    if cont % 10 != 0 or cont == 0:
-        print_format()
+    print_format()
 
 except KeyboardInterrupt:
     print_format()
