@@ -23,7 +23,8 @@ try:
         cont += 1
         w = line.split()
         try:
-            status[w[-2]] += 1
+            if w[-2] in status.keys():
+                status[w[-2]] += 1
         except:
             pass
         try:
