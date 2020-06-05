@@ -40,3 +40,11 @@ TypeError: div must be a number
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[1, 2]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+>>> matrix_divided([[1, 2]], float('inf'))
+[[0.0, 0.0]]
