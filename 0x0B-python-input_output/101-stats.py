@@ -24,6 +24,9 @@ try:
         w = line.split()
         try:
             status[w[-2]] += 1
+        except:
+            pass
+        try:
             total_size += int(w[-1])
         except:
             pass
