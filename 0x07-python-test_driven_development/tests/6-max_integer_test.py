@@ -27,6 +27,7 @@ class TestMaxInteger(unittest.TestCase):
         """Test different inputs
                 """
         self.assertEqual(max_integer([5, 2, 3]), 5)
+        self.assertEqual(max_integer([2, 5, 3]), 5)
         self.assertEqual(max_integer([1]), 1)
         self.assertEqual(max_integer([1, 1, 1]), 1)
         self.assertEqual(max_integer([-1, 0, 1]), 1)
