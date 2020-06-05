@@ -43,3 +43,23 @@ ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
 Traceback (most recent call last):
 ...
 ValueError: shapes (1,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+>>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, "hi"]])
+Traceback (most recent call last):
+...
+TypeError: invalid data type for einsum
+
+>>> lazy_matrix_mul([[1, "hi"]], [[3, 4], [5, 6]])
+Traceback (most recent call last):
+...
+TypeError: invalid data type for einsum
+
+>>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6, 7]])
+Traceback (most recent call last):
+...
+ValueError: setting an array element with a sequence.
+
+>>> lazy_matrix_mul([[1, 2], [3, 4, 6]], [[3, 4], [5, 6]])
+Traceback (most recent call last):
+...
+ValueError: setting an array element with a sequence.
