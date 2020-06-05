@@ -26,7 +26,7 @@ try:
             if w[-2] == elem:
                 values[i] += 1
                 total_size += int(w[-1])
-        cont += 1
+                cont += 1
         if cont % 10 == 0:
             print_format()
 
