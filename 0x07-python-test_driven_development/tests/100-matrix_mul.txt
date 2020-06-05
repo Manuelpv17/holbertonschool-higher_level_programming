@@ -56,3 +56,23 @@ TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 Traceback (most recent call last):
 ...
 ValueError: m_a and m_b can't be multiplied
+
+>>> matrix_mul([[1,2],[3, 4]], [[1,2],[3, 4, 3]])
+Traceback (most recent call last):
+...
+TypeError: each row of m_b must be of the same size
+
+>>> matrix_mul([[1,2,3],[3, 4]], [[1,2],[3,4]])
+Traceback (most recent call last):
+...
+TypeError: each row of m_a must be of the same size
+
+>>> matrix_mul([[1,2],[3, 4]], [[1,2],[3, "hi"]])
+Traceback (most recent call last):
+...
+TypeError: m_b should contain only integers or floats
+
+>>> matrix_mul([[1,2],[3, "hi"]], [[1,2],[3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats
