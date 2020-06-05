@@ -5,10 +5,10 @@ import sys
 
 
 def print_format():
-    print("File size: {}".format(total_size))
+    print("File size: {:d}".format(total_size))
     for stat_key, stat_value in status.items():
         if stat_value > 0:
-            print("{}: {}".format(stat_key, stat_value))
+            print("{}: {:d}".format(stat_key, stat_value))
 
 
 status = {'200': 0, '301': 0, '400': 0, '401': 0,
