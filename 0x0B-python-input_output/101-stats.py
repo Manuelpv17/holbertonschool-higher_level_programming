@@ -19,7 +19,9 @@ total_size = 0
 
 try:
     for line in sys.stdin:
-        cont += 1
+        if cont % 10 == 0 and cont != 0:
+            print_format()
+
         w = line.split()
         try:
             if w[-2] in status.keys():
@@ -31,8 +33,7 @@ try:
         except:
             pass
 
-        if cont % 10 == 0 and cont != 0:
-            print_format()
+        cont += 1
 
     print_format()
 
