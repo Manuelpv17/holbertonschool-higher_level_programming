@@ -22,8 +22,13 @@ try:
     for line in sys.stdin:
         cont += 1
         w = line.split()
-        status[w[-2]] += 1
-        total_size += int(w[-1])
+        try:
+            status[w[-2]] += 1
+            total_size += int(w[-1])
+        except:
+            print_format()
+            raise
+
         if cont % 10 == 0:
             print_format()
 
