@@ -16,3 +16,28 @@ Using ``matrix_mul``
 Traceback (most recent call last):
 ...
 TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[1,2],[3, 4]], [1,2,3])
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list of lists
+
+>>> matrix_mul("hello", [[1,2],[3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+
+>>> matrix_mul([[1,2],[3, 4]], "hello")
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+
+>>> matrix_mul([[1,2],[3, 4]], [])
+Traceback (most recent call last):
+...
+ValueError: m_b can't be empty
+
+>>> matrix_mul([], [[1,2],[3, 4]])
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
