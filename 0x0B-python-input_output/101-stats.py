@@ -26,8 +26,7 @@ try:
             status[w[-2]] += 1
             total_size += int(w[-1])
         except:
-            print_format()
-            raise
+            pass
 
         if cont % 10 == 0:
             print_format()
