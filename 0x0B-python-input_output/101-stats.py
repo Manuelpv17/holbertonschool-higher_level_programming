@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 """ Log parsing
     """
 import sys
@@ -6,24 +6,26 @@ import sys
 
 def print_format():
     print("File size: {:d}".format(total_size))
-    for stat_key, stat_value in status.items():
-        if stat_value > 0:
-            print("{}: {:d}".format(stat_key, stat_value))
+    for i in range(8):
+        if values[i] > 0:
+            print("{}: {:d}".format(status[i], values[i]))
 
 
-status = {'200': 0, '301': 0, '400': 0, '401': 0,
-          '403': 0, '404': 0, '405': 0, '500': 0}
+status = ['200', '301', '400', '401',
+          '403', '404', '405', '500']
+values = [0, 0, 0, 0, 0, 0, 0, 0]
 
 cont = 0
 total_size = 0
 
 try:
     for line in sys.stdin:
-
         w = line.split()
-        if w[-2] in status.keys():
-            status[w[-2]] += 1
-            total_size += int(w[-1])
+
+        for i, elem in enumerate(status):
+            if w[-2] == elem:
+                values[i] += 1
+                total_size += int(w[-1])
         cont += 1
         if cont % 10 == 0:
             print_format()
