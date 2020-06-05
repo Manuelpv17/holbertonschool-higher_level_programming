@@ -23,20 +23,12 @@ try:
             print_format()
 
         w = line.split()
-        try:
-            if w[-2] in status.keys():
-                status[w[-2]] += 1
-        except:
-            pass
-        try:
+        if w[-2] in status.keys():
+            status[w[-2]] += 1
             total_size += int(w[-1])
-        except:
-            pass
-
         cont += 1
-
-    print_format()
-
 except KeyboardInterrupt:
     print_format()
     raise
+
+print_format()
