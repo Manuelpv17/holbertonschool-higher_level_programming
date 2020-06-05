@@ -21,12 +21,12 @@ total_size = 0
 try:
     for line in sys.stdin:
         w = line.split()
-
-        for i, elem in enumerate(status):
-            if len(w) > 1 and w[-2] == elem:
-                values[i] += 1
-                total_size += int(w[-1])
-                cont += 1
+        if len(w) >= 2:
+            for i, elem in enumerate(status):
+                if w[-2] == elem:
+                    values[i] += 1
+            total_size += int(w[-1])
+            cont += 1
         if cont % 10 == 0:
             print_format()
 
