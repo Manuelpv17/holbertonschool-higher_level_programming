@@ -1,34 +1,38 @@
 #!/usr/bin/python3
-""" Log parsing
-    """
+"""Script that reads stdin line by line and computes metrics
+"""
+
+
 import sys
 
+status_list = [0, 0, 0, 0, 0, 0, 0, 0]
+names = ["200", "301", "400", "401", "403", "404", "405", "500"]
 
-def print_format():
-    print("File size: {:d}".format(total_size))
-    for stat_key, stat_value in status.items():
-        if stat_value > 0:
-            print("{}: {:d}".format(stat_key, stat_value))
-
-
-status = {'200': 0, '301': 0, '400': 0, '401': 0,
-          '403': 0, '404': 0, '405': 0, '500': 0}
-
-cont = 0
-total_size = 0
-
+count = 0
+file_size = 0
+if not sys.stdin:
+    print("File size: {}".format(file_size))
 try:
-    for line in sys.stdin:
-        if cont % 10 == 0 and cont != 0:
-            print_format()
-
-        w = line.split()
-        if w[-2] in status.keys():
-            status[w[-2]] += 1
-            total_size += int(w[-1])
-        cont += 1
+    for lines in sys.stdin:
+        word_list = lines.split()
+        if len(word_list) >= 2:
+            for i in range(len(names)):
+                if names[i] in word_list and word_list[-1] != names[i]:
+                    status_list[i] += 1
+            file_size += int(word_list[-1])
+            count += 1
+        if count % 10 == 0:
+            print("File size: {}".format(file_size))
+            for i in range(len(status_list)):
+                if status_list[i]:
+                    print("{}: {}".format(names[i], status_list[i]))
 except KeyboardInterrupt:
-    print_format()
+    print("File size: {}".format(file_size))
+    for i in range(len(status_list)):
+        if status_list[i]:
+            print("{}: {}".format(names[i], status_list[i]))
     raise
-
-print_format()
+print("File size: {}".format(file_size))
+for i in range(len(status_list)):
+    if status_list[i]:
+        print("{}: {}".format(names[i], status_list[i]))
