@@ -13,6 +13,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """init"""
         if id is not None:
             self.id = id
         else:
@@ -21,6 +22,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """to json"""
         j = "[]"
         if list_dictionaries:
             j = json.dumps(list_dictionaries)
@@ -28,6 +30,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """save to file"""
         l = []
         for obj in list_objs:
             d = obj.to_dictionary()
@@ -38,18 +41,21 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """from json"""
         if json_string:
             return json.loads(json_string)
         return []
 
     @classmethod
     def create(cls, **dictionary):
+        """create"""
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
+        """load from file"""
         l = []
         try:
             with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as f:
@@ -64,6 +70,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """save to file"""
         s = ""
         for obj in list_objs:
             s += obj.to_csv() + "\n"
@@ -72,6 +79,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """load from file csv"""
         l = []
         with open(cls.__name__ + ".csv", mode="r",
                   encoding="utf-8", newline='') as f:
@@ -84,12 +92,14 @@ class Base:
 
     @classmethod
     def create_csv(cls, *array):
+        """create csv"""
         dummy = cls(1, 1)
         dummy.update(*array)
         return dummy
 
     @staticmethod
     def print_turtle(obj, t, xx, yy):
+        """print turtle"""
         t.hideturtle()
         t.penup()
         t.goto(xx, yy)
@@ -173,6 +183,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """draw with turtle module"""
         turtle.Screen().setup(width=800, height=600)
         turtle.Screen().title("Let's draw it  :)")
 
