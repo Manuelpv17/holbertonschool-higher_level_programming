@@ -10,12 +10,9 @@ class TestBase(unittest.TestCase):
     """Unittest"""
 
     def test_first_rectangle(self):
-        r = Rectangle(10, 2)
-        self.assertEqual(r.id, 3)
-        r1 = Rectangle(10, 2, 0, 0, 12)
-        self.assertEqual(r1.id, 12)
-        r2 = Rectangle(10, 2)
-        self.assertEqual(r2.id, 4)
+        self.assertEqual(Rectangle(10, 2).id, 5)
+        self.assertEqual(Rectangle(10, 2, 0, 0, 12).id, 12)
+        self.assertEqual(Rectangle(10, 2).id, 6)
         self.assertRaises(TypeError, Rectangle)
         self.assertRaises(TypeError, Rectangle, 1)
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, 4, 5, 6)
@@ -47,3 +44,17 @@ class TestBase(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, None)
         self.assertRaises(TypeError, Rectangle, 1, 2, "hi", 4)
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, "hi")
+
+    def test_area(self):
+        self.assertEqual(Rectangle(3, 2).area(), 6)
+        self.assertEqual(Rectangle(2, 10).area(), 20)
+        self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
+
+    def test_display(self):
+        pass
+
+    def test_str(self):
+        self.assertEqual(Rectangle(4, 6, 2, 1, 12).__str__(),
+                         "[Rectangle] (12) 2/1 - 4/6")
+        self.assertEqual(Rectangle(5, 5, 1).__str__(),
+                         "[Rectangle] (7) 1/0 - 5/5")
