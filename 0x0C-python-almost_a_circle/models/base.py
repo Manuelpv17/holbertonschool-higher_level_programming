@@ -51,7 +51,7 @@ class Base:
         """create"""
         if cls.__name__ == "Square":
             dummy = cls(1)
-        else cls.__name__ == "Rectangle":
+        elif cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
