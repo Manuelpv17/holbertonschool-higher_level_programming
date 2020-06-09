@@ -62,3 +62,40 @@ class Rectangle(Base):
 
     def area(self):
         return self.height * self.width
+
+    def display(self):
+        for i in range(self.height + self.y):
+            if i >= self.y:
+                for j in range(self.width + self.x):
+                    if j < self.x:
+                        print(" ", end="")
+                    else:
+                        print("#", end="")
+            print()
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwargs):
+        data = ("id", "width", "height", "x", "y")
+        for i, elem in enumerate(args):
+            setattr(self, data[i], elem)
+
+        if not args:
+            for key, value in kwargs.items():
+                if key in data:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        d = {}
+        data = ("id", "width", "height", "x", "y")
+        for elm in data:
+            d[elm] = getattr(self, elm)
+        return d
+
+    def to_csv(self):
+        s = ""
+        data = ("id", "width", "height", "x", "y")
+        for elm in data:
+            s += str(getattr(self, elm)) + ", "
+        return s[:-2]
