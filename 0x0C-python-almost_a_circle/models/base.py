@@ -160,7 +160,7 @@ class Base:
                 p_x.penup()
                 p_x.forward(5)
 
-        name = turtle.Turtle()
+        name = turtle.Turtle(visible="False")
         name.penup()
         name.hideturtle()
         name.goto(xx, yy - 28)
