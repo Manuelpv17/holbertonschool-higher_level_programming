@@ -73,7 +73,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         l = []
-        with open(cls.__name__ + ".csv", mode="r", encoding="utf-8", newline='') as f:
+        with open(cls.__name__ + ".csv", mode="r",
+                  encoding="utf-8", newline='') as f:
             read = csv.reader(f)
             for elm in read:
                 for i, value in enumerate(elm):
