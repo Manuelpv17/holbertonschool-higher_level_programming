@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Rectangle 
+""" Rectangle
 """
 from models.base import Base
 
@@ -9,6 +9,7 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """init"""
         self.width = width
         self.height = height
         self.x = x
@@ -17,10 +18,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width getter"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """width setter"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -29,10 +32,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """height getter"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """height setter"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -41,10 +46,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """x setter"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -53,10 +60,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """y setter"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -64,9 +73,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """area function"""
         return self.height * self.width
 
     def display(self):
+        """draw of #"""
         for i in range(self.height + self.y):
             if i >= self.y:
                 for j in range(self.width + self.x):
@@ -77,9 +88,12 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        """representation string"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
+        """update function"""
         data = ("id", "width", "height", "x", "y")
         for i, elem in enumerate(args):
             setattr(self, data[i], elem)
@@ -90,6 +104,7 @@ class Rectangle(Base):
                     setattr(self, key, value)
 
     def to_dictionary(self):
+        """from object to dictionary"""
         d = {}
         data = ("id", "width", "height", "x", "y")
         for elm in data:
@@ -97,6 +112,7 @@ class Rectangle(Base):
         return d
 
     def to_csv(self):
+        """from object to csv format"""
         s = ""
         data = ("id", "width", "height", "x", "y")
         for elm in data:
