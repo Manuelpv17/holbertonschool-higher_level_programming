@@ -16,3 +16,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.id, 12)
         r2 = Rectangle(10, 2)
         self.assertEqual(r2.id, 4)
+        self.assertRaises(TypeError, Rectangle)
+        self.assertRaises(TypeError, Rectangle, 1)
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, 4, 5, 6)
+
+    def test_validate_attributes(self):
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, 4, 5, 6)
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, 4, 5, 6)
