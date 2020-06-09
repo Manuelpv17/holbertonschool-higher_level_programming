@@ -49,9 +49,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """create"""
-        dummy = cls(1, 1)
-        dummy.update(**dictionary)
-        return dummy
+        if dictionary:
+            dummy = cls(1, 1)
+            dummy.update(**dictionary)
+            return dummy
 
     @classmethod
     def load_from_file(cls):
