@@ -10,6 +10,7 @@ class TestBase(unittest.TestCase):
     """Unittest"""
 
     def test_Base(self):
+        """Test base"""
         self.assertEqual(Base().id, 1)
         self.assertEqual(Base().id, 2)
         self.assertEqual(Base().id, 3)
