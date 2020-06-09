@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""class will be the “base” of all 
+"""class will be the “base” of all
 other classes in this project
 """
 import json
@@ -8,6 +8,8 @@ import turtle
 
 
 class Base:
+    """ Class Base
+        """
     __nb_objects = 0
 
     def __init__(self, id=None):
