@@ -49,7 +49,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """create"""
-        if dictionary:
+        if len(dictionary) >= 2:
             dummy = cls(1, 1)
             dummy.update(**dictionary)
             return dummy
