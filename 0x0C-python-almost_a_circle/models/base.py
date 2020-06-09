@@ -49,10 +49,12 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """create"""
-        if len(dictionary) >= 2:
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        else cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
-            dummy.update(**dictionary)
-            return dummy
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
