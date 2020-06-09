@@ -5,6 +5,7 @@ other classes in this project
 import json
 import csv
 import turtle
+import random
 
 
 class Base:
@@ -110,7 +111,8 @@ class Base:
         t.pendown()
         t.shapesize(1/3)
         t.shape("square")
-        t.color("black", "blue")
+        color = hex(random.randint(0, 16777215))
+        t.color("black",  "#{}".format(color[2:]))
 
         x = turtle.Turtle(visible="False")
         x.hideturtle()
@@ -189,6 +191,7 @@ class Base:
         """draw with turtle module"""
         turtle.Screen().setup(width=800, height=600)
         turtle.Screen().title("Let's draw it  :)")
+        turtle.Screen().bgcolor("#edf9f8")
 
         x = -290
         y = 80
