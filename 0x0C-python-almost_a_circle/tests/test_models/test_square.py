@@ -8,9 +8,4 @@ from models.square import Square
 
 class TestBase(unittest.TestCase):
     """Unittest"""
-
-    def test_base_class(self):
-        """Test base"""
-        self.assertEqual(Base().id, 1)
-        self.assertEqual(Base(12).id, 12)
-        self.assertEqual(Base().id, 2)
+    pass
