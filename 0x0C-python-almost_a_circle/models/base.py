@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""class will be the “base” of all 
+other classes in this project
+"""
 import json
 import csv
 import turtle
