@@ -10,9 +10,9 @@ class TestBase(unittest.TestCase):
     """Unittest"""
 
     def test_first_rectangle(self):
-        self.assertEqual(Rectangle(10, 2).id, 5)
+        self.assertEqual(Rectangle(10, 2).id, 1)
         self.assertEqual(Rectangle(10, 2, 0, 0, 12).id, 12)
-        self.assertEqual(Rectangle(10, 2).id, 6)
+        self.assertEqual(Rectangle(10, 2).id, 2)
         self.assertRaises(TypeError, Rectangle)
         self.assertRaises(TypeError, Rectangle, 1)
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, 4, 5, 6)
@@ -57,11 +57,11 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Rectangle(4, 6, 2, 1, 12).__str__(),
                          "[Rectangle] (12) 2/1 - 4/6")
         self.assertEqual(Rectangle(5, 5, 1).__str__(),
-                         "[Rectangle] (7) 1/0 - 5/5")
+                         "[Rectangle] (1) 1/0 - 5/5")
 
     def test_update(self):
         r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(r1.__str__(), "[Rectangle] (8) 10/10 - 10/10")
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 10/10 - 10/10")
         r1.update(89)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 10/10 - 10/10")
         r1.update(89, 2)
@@ -74,11 +74,11 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 4/5 - 2/3")
 
         r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(r1.__str__(), "[Rectangle] (9) 10/10 - 10/10")
+        self.assertEqual(r1.__str__(), "[Rectangle] (2) 10/10 - 10/10")
         r1.update(height=1)
-        self.assertEqual(r1.__str__(), "[Rectangle] (9) 10/10 - 10/1")
+        self.assertEqual(r1.__str__(), "[Rectangle] (2) 10/10 - 10/1")
         r1.update(width=1, x=2)
-        self.assertEqual(r1.__str__(), "[Rectangle] (9) 2/10 - 1/1")
+        self.assertEqual(r1.__str__(), "[Rectangle] (2) 2/10 - 1/1")
         r1.update(y=1, width=2, x=3, id=89)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 3/1 - 2/1")
         r1.update(x=1, height=2, y=3, width=4)
@@ -87,3 +87,21 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 4/5 - 2/3")
         r1.update(90, x=1, height=2, y=3, width=4)
         self.assertEqual(r1.__str__(), "[Rectangle] (90) 4/5 - 2/3")
+
+    def test_to_dict(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        self.assertEqual(r1.to_dictionary(),
+                         {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
+        self.assertEqual(str(type(r1.to_dictionary())),
+                         "<class 'dict'>")
+        self.assertEqual(str(type(r1.to_dictionary())),
+                         "<class 'dict'>")
+        r2 = Rectangle(1, 1)
+        r2.update(**r1.to_dictionary())
+        self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/9 - 10/2")
+        self.assertEqual(r1 == r2, False)
+
+    def tearDown(self):
+        """Tears down obj count
+        """
+        Base._Base__nb_objects = 0

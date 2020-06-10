@@ -15,3 +15,8 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base(12).id, 12)
         self.assertEqual(Base().id, 2)
         self.assertRaises(TypeError, Base, 1, 2)
+
+    def tearDown(self):
+        """Tears down obj count
+        """
+        Base._Base__nb_objects = 0

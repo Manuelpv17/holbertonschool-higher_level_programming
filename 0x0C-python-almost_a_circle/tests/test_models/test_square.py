@@ -10,9 +10,9 @@ class TestBase(unittest.TestCase):
     """Unittest"""
 
     def test_square_now(self):
-        self.assertEqual(Square(10, 2).id, 10)
+        self.assertEqual(Square(10, 2).id, 1)
         self.assertEqual(Square(10, 2, 0, 12).id, 12)
-        self.assertEqual(Square(10, 2).id, 11)
+        self.assertEqual(Square(10, 2).id, 2)
         self.assertRaises(TypeError, Square)
         self.assertRaises(TypeError, Square, 1, 2, 3, 4, 5)
 
@@ -41,7 +41,7 @@ class TestBase(unittest.TestCase):
         s1 = Square(1, 2, 3, 4)
         self.assertEqual(s1.__str__(), "[Square] (4) 2/3 - 1")
         s1 = Square(5)
-        self.assertEqual(s1.__str__(), "[Square] (12) 0/0 - 5")
+        self.assertEqual(s1.__str__(), "[Square] (1) 0/0 - 5")
         s1.update(10)
         self.assertEqual(s1.__str__(), "[Square] (10) 0/0 - 5")
         s1.update(1, 2)
@@ -58,3 +58,20 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1.__str__(), "[Square] (89) 12/1 - 7")
         s1.update(1, size=3, id=20, y=2)
         self.assertEqual(s1.__str__(), "[Square] (1) 12/1 - 7")
+
+    def tearDown(self):
+        """Tears down obj count
+        """
+        Base._Base__nb_objects = 0
+
+    def test_to_dict_square(self):
+        s1 = Square(10, 2, 1)
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(s1_dictionary,
+                         {'id': 1, 'x': 2, 'size': 10, 'y': 1})
+        self.assertEqual(str(type(s1_dictionary)),
+                         "<class 'dict'>")
+        s2 = Square(1, 1)
+        s2.update(**s1_dictionary)
+        self.assertEqual(s2.__str__(), "[Square] (1) 2/1 - 10")
+        self.assertEqual(s1 == s2, False)
