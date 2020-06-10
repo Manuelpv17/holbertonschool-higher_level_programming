@@ -28,5 +28,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(
             dictionary, {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8})
         self.assertEqual(type(dictionary), dict)
-        self.assertEqual(json_dictionary, "[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]")
+        self.assertCountEqual(
+            json_dictionary, '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
         self.assertEqual(type(json_dictionary), str)
