@@ -111,8 +111,9 @@ class Base:
         t.pendown()
         t.shapesize(1/3)
         t.shape("square")
-        color = hex(random.randint(0, 16777215))
-        t.color("black",  "#{}".format(color[2:]))
+        t.pencolor("black")
+        t.fillcolor(random.randrange(255), random.randrange(
+            255), random.randrange(255))
 
         x = turtle.Turtle(visible="False")
         x.hideturtle()
@@ -192,6 +193,7 @@ class Base:
         turtle.Screen().setup(width=800, height=600)
         turtle.Screen().title("Let's draw it  :)")
         turtle.Screen().bgcolor("#edf9f8")
+        turtle.Screen().colormode(255)
 
         x = -290
         y = 80
