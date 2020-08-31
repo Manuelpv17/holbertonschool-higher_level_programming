@@ -20,12 +20,12 @@ def filter_func():
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states;")
+    cursor.execute(
+        "SELECT * FROM states WHERE name = '{}';".format(sys.argv[4]))
 
     r = cursor.fetchall()
     for elem in r:
-        if elem[1] == sys.argv[4]:
-            print(elem)
+        print(elem)
 
     db.close()
 
