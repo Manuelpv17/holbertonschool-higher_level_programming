@@ -5,6 +5,7 @@ import sys
 
 
 def list_func():
+    """ lists all states from the database hbtn_0e_0_usa """
     if len(sys.argv) != 4:
         return
 
