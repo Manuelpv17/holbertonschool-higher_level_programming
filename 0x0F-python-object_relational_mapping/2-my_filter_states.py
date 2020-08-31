@@ -21,7 +21,7 @@ def filter_func():
 
     cursor = db.cursor()
     cursor.execute(
-        "SELECT * FROM states WHERE name = '{}';".format(sys.argv[4]))
+        "SELECT * FROM states WHERE name = '{}' ORDER BY states.id;".format(sys.argv[4]))
 
     r = cursor.fetchall()
     for elem in r:
