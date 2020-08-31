@@ -20,7 +20,7 @@ def print_func():
     session = Session()
 
     elem = session.query(State).first()
-    if elem == None:
+    if elem is None:
         print("Nothing")
     else:
         print("{}: {}".format(elem.id, elem.name))
