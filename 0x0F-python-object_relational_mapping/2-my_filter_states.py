@@ -21,7 +21,7 @@ def filter_func():
 
     cursor = db.cursor()
     cursor.execute(
-        "SELECT * FROM states WHERE name = '{}' ORDER BY states.id;".format(
+        "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY states.id ASC;".format(
             sys.argv[4]))
 
     r = cursor.fetchall()
