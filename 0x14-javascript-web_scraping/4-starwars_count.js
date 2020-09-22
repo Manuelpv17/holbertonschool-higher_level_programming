@@ -9,12 +9,12 @@ request(url, function (error, response, body) {
   } else if (response && response.statusCode === 200) {
     const films = JSON.parse(body).results;
     for (let i = 0; i < films.length; i++) {
-      if (films[i].characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-        count++;
+      for (let j = 0; j < films[i].characters.length; j++) {
+        if (films[i].characters[j].includes('18')) {
+          count++;
+        }
       }
     }
     console.log(count);
-  } else {
-    console.log(0)
   }
 });
