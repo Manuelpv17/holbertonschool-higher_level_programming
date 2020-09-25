@@ -20,9 +20,7 @@ request.post(
     }
   },
   function (error, response, body) {
-    if (error) {
-      console.log(response.statusCode);
-    } else {
+    if (!error) {
       const token = JSON.parse(body).access_token;
       request.get(
         {
@@ -33,9 +31,7 @@ request.post(
           headers: { Authorization: 'Bearer ' + token }
         },
         function (error, response, body) {
-          if (error) {
-            console.log(response.statusCode);
-          } else {
+          if (!error) {
             const data = JSON.parse(body).statuses;
             if (data) {
               for (let i = 0; i < data.length; i++) {
