@@ -37,10 +37,12 @@ request.post(
             console.log(response.statusCode);
           } else {
             const data = JSON.parse(body).statuses;
-            for (let i = 0; i < data.length; i++) {
-              console.log(
-                `[${data[i].id}] ${data[i].text} by ${data[i].user.name}`
-              );
+            if (data) {
+              for (let i = 0; i < data.length; i++) {
+                console.log(
+                  `[${data[i].id}] ${data[i].text} by ${data[i].user.name}`
+                );
+              }
             }
           }
         }
