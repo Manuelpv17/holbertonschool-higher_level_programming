@@ -4,11 +4,11 @@ const request = require('request');
 const base64 = require('base-64');
 const utf8 = require('utf8');
 
-const consumer_key = process.argv[2];
-const consumer_secret = process.argv[3];
+const consumerKey = process.argv[2];
+const consumerSecret = process.argv[3];
 
 const encodeKey = base64.encode(
-  utf8.encode(`${consumer_key}:${consumer_secret}`)
+  utf8.encode(`${consumerKey}:${consumerSecret}`)
 );
 
 request.post(
@@ -37,7 +37,7 @@ request.post(
             console.log(response.statusCode);
           } else {
             const data = JSON.parse(body).statuses;
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < data.length; i++) {
               console.log(
                 `[${data[i].id}] ${data[i].text} by ${data[i].user.name}`
               );
@@ -48,7 +48,3 @@ request.post(
     }
   }
 );
-/*
-const urlTweets =
-  "https://api.twitter.com/1.1/search/tweets.json?q=" + process.argv[4];
-*/
