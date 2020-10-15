@@ -5,10 +5,13 @@
 def find_peak(list_of_integers):
     """ Find a peak """
     lenList = len(list_of_integers)
-    if lenList == 0:
-        return None
-    for i in range(0, lenList):
-        if (i + 1 >= lenList or list_of_integers[i] > list_of_integers[i+1]) and (i == 0 or list_of_integers[i] > list_of_integers[i-1]):
-            return list_of_integers[i]
+    right = lenList - 1
+    left = 0
 
-    return list_of_integers[0]
+    while (right > left):
+        mid = (right + 1 + left) // 2
+        if list_of_integers[mid - 1] > list_of_integers[mid]:
+            right = mid - 1
+        else:
+            left = mid
+    return left
