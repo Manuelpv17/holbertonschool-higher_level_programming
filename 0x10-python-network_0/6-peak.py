@@ -14,7 +14,9 @@ def recursionPeak(intList, left, right):
     if (left == right):
         return intList[left]
     mid = (left + right) // 2
-    if (intList[mid] > intList[mid + 1]) and (mid == left or intList[mid] > intList[mid - 1]):
+    if (intList[mid] >
+            intList[mid + 1]) and (mid == left or
+                                   intList[mid] > intList[mid - 1]):
         return intList[mid]
     elif intList[mid] < intList[mid + 1]:
         return recursionPeak(intList, mid + 1, right)
