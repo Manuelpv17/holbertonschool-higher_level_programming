@@ -11,6 +11,9 @@ if __name__ == "__main__":
         ownerName, repName)
     r = requests.get(url)
     body = r.json()
-    for i in range(10):
-        print("{}: {}".format(body[i]["sha"],
-                              body[i]["commit"]["author"]["name"]))
+    try:
+        for i in range(10):
+            print("{}: {}".format(body[i]["sha"],
+                                  body[i]["commit"]["author"]["name"]))
+    except:
+        pass
